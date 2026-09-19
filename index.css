@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-bebas: "Bebas Neue", "Outfit", sans-serif;
+
+  --color-ink: #07070c;
+  --color-coal: #0d0d14;
+  --color-panel: #13131c;
+  --color-panel2: #1a1a25;
+  --color-line: #262633;
+  --color-gold: #f5c518;
+  --color-ember: #e50914;
+
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-kenburns: kenburns 14s ease-out forwards;
+  --animate-pulse-dot: pulsedot 1.6s ease-in-out infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes kenburns {
+    from { transform: scale(1.12); }
+    to { transform: scale(1); }
+  }
+  @keyframes pulsedot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(0.8); }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: #f4f4f5;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-ember);
+  color: #fff;
+}
+
+/* Slim cinematic scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0d14;
+}
+::-webkit-scrollbar-thumb {
+  background: #2e2e3d;
+  border-radius: 8px;
+  border: 2px solid #0d0d14;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e50914;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Outlined giant rank numbers */
+.text-stroke {
+  -webkit-text-stroke: 2px #3f3f52;
+  color: transparent;
+}
+.text-stroke-red {
+  -webkit-text-stroke: 2px #e50914;
+  color: transparent;
+}
+@media (min-width: 768px) {
+  .text-stroke, .text-stroke-red {
+    -webkit-text-stroke-width: 3px;
+  }
+}
+
+/* Dotted texture for dark panels */
+.dot-grid {
+  background-image: radial-gradient(#2a2a3a 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Film-grain-ish vignette using inset shadow (no gradients) */
+.vignette {
+  box-shadow: inset 0 0 180px 60px rgba(0, 0, 0, 0.85);
+}
+
+input[type="range"] {
+  accent-color: #e50914;
+}
+
+/* Numeric font-weight helpers */
+.font-800 {
+  font-weight: 800;
+}
+.font-900 {
+  font-weight: 900;
+}
